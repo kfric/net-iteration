@@ -32,7 +32,10 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            // newListOfWords is equal to (each work in pervious list in uppercase?)
+            var newListOfWords = words.Select(word => word.ToUpper());
+            // return this new list of uppercase words
+            return newListOfWords;
         }
 
 
@@ -43,7 +46,10 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            // numbersDoubled is equal to (take each number in list and mutiply by 2)
+            var numbersDoubled = numbers.Select(number => number * 2);
+            // return this new list of multipied numbers
+            return numbersDoubled;
         }
 
 
@@ -55,7 +61,9 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> words)
         {
-            throw new System.NotImplementedException();
+            // newList is equal to (each words--index) 
+            var newListOfWords = words.Select((word, index) => $"{word} is at index {index}");
+            return newListOfWords;
         }
 
 
@@ -65,7 +73,8 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var evenNumberOnly = numbers.Where(number => number % 2 == 0);
+            return evenNumberOnly;
         }
 
 
@@ -73,10 +82,16 @@ namespace DotnetIteration
         // 5) Complete the method OnlyTheEvenIndexedSurvive that accepts a
         //    list of numbers and returns only the elements at indexes that
         //    are even.
-        // 
+
+        //    2 things.....
+        //    Indexes
+        //    Even numbers
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var evenIndexes = numbers.Where((number, index) => index % 2 == 0);
+            return evenIndexes;
+
+
         }
 
 
@@ -95,7 +110,10 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> movies, int yearToMatch)
         {
-            throw new System.NotImplementedException();
+            var listOne = movies.Where(movie => movie.Score > 90 && movie.Year == yearToMatch).Select((movie => movie.Name));
+
+            return listOne;
+
         }
 
 
@@ -105,7 +123,8 @@ namespace DotnetIteration
         // 
         public static bool EveryoneIsOdd(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var oddNumbers = numbers.All(number => number % 2 != 0);
+            return oddNumbers;
         }
 
 
@@ -116,7 +135,8 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var oneWord = sentences.FirstOrDefault(sentence => sentence.Contains("needle"));
+            return oneWord;
         }
 
 
@@ -127,7 +147,8 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var needleIndex = sentences.FindIndex(sentence => sentence.Contains("needle"));
+            return needleIndex;
         }
 
 
@@ -138,7 +159,8 @@ namespace DotnetIteration
         // 
         public static bool SomeoneToLove(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var fourCharacters = words.Any(word => word.Length == 4);
+            return fourCharacters;
         }
     }
 }
